@@ -1,4 +1,4 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -7,6 +7,7 @@
 <title>A Little Letter 💗</title>
 
 <style>
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -40,6 +41,7 @@ body {
 }
 
 @keyframes floatUp {
+
     0% {
         transform: translateY(0) rotate(0deg);
         opacity: 0;
@@ -53,6 +55,7 @@ body {
         transform: translateY(-110vh) rotate(30deg);
         opacity: 0;
     }
+
 }
 
 /* =========================
@@ -68,6 +71,7 @@ body {
 }
 
 @keyframes sparkle {
+
     0%,100% {
         opacity: .2;
         transform: scale(.7);
@@ -77,6 +81,7 @@ body {
         opacity: 1;
         transform: scale(1.3);
     }
+
 }
 
 /* =========================
@@ -114,6 +119,7 @@ body {
 }
 
 @keyframes floating {
+
     0%,100% {
         transform: translateY(0);
     }
@@ -121,6 +127,7 @@ body {
     50% {
         transform: translateY(-8px);
     }
+
 }
 
 .mini-title {
@@ -147,8 +154,9 @@ h1 {
     line-height: 1.7;
 }
 
-.open-button {
-    margin-top: 30px;
+.open-button,
+.proceed-button,
+.finish {
     border: none;
     background: #ed5796;
     color: white;
@@ -160,13 +168,19 @@ h1 {
     transition: .3s;
 }
 
-.open-button:hover {
+.open-button {
+    margin-top: 30px;
+}
+
+.open-button:hover,
+.proceed-button:hover,
+.finish:hover {
     transform: scale(1.06);
     background: #d83d7d;
 }
 
 /* =========================
-   LETTER
+   LETTER ROOM
 ========================= */
 
 .letter-section {
@@ -183,6 +197,7 @@ h1 {
 }
 
 @keyframes appear {
+
     from {
         opacity: 0;
         transform: translateY(40px);
@@ -192,6 +207,7 @@ h1 {
         opacity: 1;
         transform: translateY(0);
     }
+
 }
 
 .letter {
@@ -243,38 +259,108 @@ h1 {
 }
 
 /* =========================
-   SURVEY
+   PROCEED AREA
 ========================= */
 
-.survey {
+.proceed-area {
+    text-align: center;
     margin-top: 45px;
-    background: rgba(255,255,255,.8);
+}
+
+.proceed-text {
+    font-family: Arial, sans-serif;
+    color: #92506d;
+    font-size: 13px;
+    margin-bottom: 15px;
+    line-height: 1.7;
+}
+
+/* =========================
+   SURVEY ROOM
+========================= */
+
+.survey-room {
+    display: none;
+    min-height: 100vh;
+    padding: 60px 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.survey-room.show {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: roomAppear 1.2s ease;
+}
+
+@keyframes roomAppear {
+
+    from {
+        opacity: 0;
+        transform: scale(.92) translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+
+}
+
+.survey-container {
+    width: 100%;
+    max-width: 650px;
+}
+
+.survey-header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.survey-small {
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #d83d7d;
+    margin-bottom: 12px;
+}
+
+.survey-header h2 {
+    font-size: 42px;
+    color: #c52f6d;
+    font-weight: normal;
+}
+
+.survey-header p {
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    color: #8a5269;
+    margin-top: 12px;
+    line-height: 1.7;
+}
+
+.survey {
+    background: rgba(255,255,255,.82);
     padding: 30px 20px;
     border-radius: 28px;
     box-shadow: 0 15px 45px rgba(150,40,90,.13);
     text-align: center;
 }
 
-.survey h3 {
-    color: #c52f6d;
-    font-size: 27px;
-    font-weight: normal;
-}
-
-.survey-intro {
-    font-family: Arial, sans-serif;
-    font-size: 13px;
-    color: #8a5269;
-    margin-top: 10px;
-}
-
 .question {
     margin-top: 30px;
+}
+
+.question:first-child {
+    margin-top: 0;
 }
 
 .question-title {
     font-size: 16px;
     margin-bottom: 15px;
+    line-height: 1.5;
 }
 
 .options {
@@ -302,13 +388,7 @@ h1 {
 }
 
 .finish {
-    margin-top: 30px;
-    border: none;
-    background: #d83d7d;
-    color: white;
-    padding: 13px 28px;
-    border-radius: 30px;
-    cursor: pointer;
+    margin-top: 35px;
 }
 
 .result {
@@ -321,14 +401,19 @@ h1 {
     line-height: 1.8;
 }
 
+.result.show {
+    display: block;
+    animation: appear .8s ease;
+}
+
 /* =========================
-   END
+   ENDING
 ========================= */
 
 .ending {
     text-align: center;
-    margin-top: 45px;
-    padding: 30px;
+    margin-top: 35px;
+    padding: 20px;
     color: #9d5270;
     font-size: 13px;
     line-height: 2;
@@ -342,6 +427,7 @@ h1 {
 }
 
 @keyframes heartbeat {
+
     0%,100% {
         transform: scale(1);
     }
@@ -349,6 +435,7 @@ h1 {
     50% {
         transform: scale(1.2);
     }
+
 }
 
 /* =========================
@@ -369,11 +456,17 @@ h1 {
         font-size: 15px;
     }
 
+    .survey-header h2 {
+        font-size: 35px;
+    }
+
 }
+
 </style>
 </head>
 
 <body>
+
 
 <!-- =========================
      OPENING
@@ -387,7 +480,6 @@ h1 {
             A little something for
         </div>
 
-        <!-- ✏️ CHANGE HER NAME HERE -->
         <h1>Anak ni JoJo</h1>
 
         <p class="subtitle">
@@ -405,7 +497,7 @@ h1 {
 
 
 <!-- =========================
-     LETTER
+     LETTER ROOM
 ========================= -->
 
 <section class="letter-section" id="letter">
@@ -476,20 +568,54 @@ h1 {
         </div>
 
 
-        <!-- =========================
-             CUTE SURVEY
-        ========================= -->
+        <!-- PROCEED -->
+
+        <div class="proceed-area">
+
+            <p class="proceed-text">
+                If you've reached this far...<br>
+                there's one little thing left. 💗
+            </p>
+
+            <button class="proceed-button" onclick="proceedToSurvey()">
+                Please Proceed 🌷
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     SEPARATE SURVEY ROOM
+========================= -->
+
+<section class="survey-room" id="surveyRoom">
+
+    <div class="survey-container">
+
+        <div class="survey-header">
+
+            <div class="survey-small">
+                A little something more
+            </div>
+
+            <h2>One Last Thing 💗</h2>
+
+            <p>
+                Welcome to the next little room. 🌷<br>
+                Pwede ko mangutana og gamay?<br>
+                No pressure. Just answer honestly.
+            </p>
+
+        </div>
+
 
         <div class="survey">
 
-            <h3>Before you go… </h3>
-
-            <p class="survey-intro">
-                Pwede ko mangutana og gamay?<br>
-                No pressure. Just answer honestly.<br>
-              e-screen shot lang ang imong answer please 💗
-            </p>
-
+            <!-- QUESTION 1 -->
 
             <div class="question">
 
@@ -519,6 +645,8 @@ h1 {
             </div>
 
 
+            <!-- QUESTION 2 -->
+
             <div class="question">
 
                 <div class="question-title">
@@ -547,6 +675,8 @@ h1 {
             </div>
 
 
+            <!-- QUESTION 3 -->
+
             <div class="question">
 
                 <div class="question-title">
@@ -567,7 +697,7 @@ h1 {
 
                     <button class="option"
                         onclick="selectOption(this)">
-                        Ohh, bisag karon na ?
+                        Ohh, bisag karon na? 👀
                     </button>
 
                 </div>
@@ -636,6 +766,37 @@ function openLetter() {
         opening.style.display = "none";
 
         letter.classList.add("show");
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+    }, 900);
+}
+
+
+/* =========================
+   PROCEED TO SURVEY
+========================= */
+
+function proceedToSurvey() {
+
+    const letter =
+        document.getElementById("letter");
+
+    const surveyRoom =
+        document.getElementById("surveyRoom");
+
+    letter.style.transition = "1s ease";
+    letter.style.opacity = "0";
+    letter.style.transform = "scale(.92)";
+
+    setTimeout(() => {
+
+        letter.style.display = "none";
+
+        surveyRoom.classList.add("show");
 
         window.scrollTo({
             top: 0,
@@ -723,7 +884,7 @@ setInterval(createSparkle, 500);
 
 
 /* =========================
-   SURVEY BUTTONS
+   SURVEY OPTIONS
 ========================= */
 
 function selectOption(button) {
@@ -743,7 +904,7 @@ function selectOption(button) {
 
 
 /* =========================
-   SURVEY FINISH
+   FINISH SURVEY
 ========================= */
 
 function finishSurvey() {
@@ -751,7 +912,7 @@ function finishSurvey() {
     const result =
         document.getElementById("result");
 
-    result.style.display = "block";
+    result.classList.add("show");
 
     result.scrollIntoView({
         behavior: "smooth",
@@ -764,4 +925,3 @@ function finishSurvey() {
 
 </body>
 </html>
- 
